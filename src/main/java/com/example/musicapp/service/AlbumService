@@ -1,0 +1,30 @@
+package com.example.musicapp.service;
+
+import com.example.musicapp.model.Album;
+import com.example.musicapp.model.Singer;
+import com.example.musicapp.repository.AlbumRepository;
+import com.example.musicapp.repository.SingerRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AlbumService {
+    private final AlbumRepository albumRepository;
+    private final SingerRepository singerRepository;
+
+    public AlbumService(AlbumRepository albumRepository, SingerRepository singerRepository) {
+        this.albumRepository = albumRepository;
+        this.singerRepository = singerRepository;
+    }
+
+    public Album createAlbum(Album album, Long singerId) {
+        Singer singer = singerRepository.findById(singerId).orElseThrow();
+        album.setSinger(singer);
+        return albumRepository.save(album);
+    }
+
+    public List<Album> getAllAlbums() {
+        return albumRepository.findAll();
+    }
+}
