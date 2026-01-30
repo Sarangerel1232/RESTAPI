@@ -1,4 +1,4 @@
-package com.example.musicapp.service;
+package com.example.demo.service;
 
 import com.example.musicapp.model.Album;
 import com.example.musicapp.model.Song;
