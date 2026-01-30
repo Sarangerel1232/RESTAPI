@@ -1,0 +1,27 @@
+package com.example.musicapp.controller;
+
+import com.example.musicapp.model.Album;
+import com.example.musicapp.service.AlbumService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/albums")
+public class AlbumController {
+    private final AlbumService albumService;
+
+    public AlbumController(AlbumService albumService) {
+        this.albumService = albumService;
+    }
+
+    @PostMapping("/{singerId}")
+    public Album createAlbum(@RequestBody Album album, @PathVariable Long singerId) {
+        return albumService.createAlbum(album, singerId);
+    }
+
+    @GetMapping
+    public List<Album> getAllAlbums() {
+        return albumService.getAllAlbums();
+    }
+}

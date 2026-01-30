@@ -1,0 +1,27 @@
+package com.example.musicapp.controller;
+
+import com.example.musicapp.model.Singer;
+import com.example.musicapp.service.SingerService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/singers")
+public class SingerController {
+    private final SingerService singerService;
+
+    public SingerController(SingerService singerService) {
+        this.singerService = singerService;
+    }
+
+    @PostMapping
+    public Singer createSinger(@RequestBody Singer singer) {
+        return singerService.createSinger(singer);
+    }
+
+    @GetMapping
+    public List<Singer> getAllSingers() {
+        return singerService.getAllSingers();
+    }
+}
