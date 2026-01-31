@@ -1,30 +1,27 @@
-# Music Album REST API
+# Music REST API
 
-Backend project built with Spring Boot.
+Simple Spring Boot REST API for managing singers, albums, and songs.
 
-## Domain
-- Singer
-- Album
-- Song
-
-## Relationships
-- One Singer → Many Albums
-- One Album → Many Songs
-- One Song → One Album & One Singer
-
-## Technologies
-- Java
+## Tech
+- Java 21
 - Spring Boot
+- Spring Web
 - Spring Data JPA
 - H2 Database
+- Maven
 
 ## Features
-- Create & list singers
-- Create albums for singers
-- Add songs to albums
-- View all albums and songs
+- CRUD for Singer
+- Album linked to Singer
+- Song linked to Album and Singer
+- RESTful endpoints
 
-## How to Run
-1. Clone repo
-2. Run `MusicApplication.java`
-3. Test endpoints using Postman
+## Run
+mvn spring-boot:run
+
+## URLs
+App: http://localhost:8080  
+H2 Console: http://localhost:8080/h2-console
+
+## Author
+Sarangerel Altangerel
